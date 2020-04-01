@@ -157,3 +157,30 @@ def summary():
             ]
         }
     return render_template('summary.html', summary=summary, skills=skills)
+
+@app.route('/projects')
+def projects():
+    projects = [
+        {
+            'name' : 'carzone',
+            'description' : 'Full-stack web application for selecting vehicles and leaving ratings and reviews; as part of the back-end team I worked to create a web-based API for CRUD operation',
+            'environment' : 'Python/Flask, Angular'
+        },
+        {
+            'name' : 'sensaphonics',
+            'description' : 'Full-stack project for ordering custom in-ear monitors for professional musicians',
+            'environment' : 'Python/Flask, HTML5/CSS3, PostgreSQL'
+        },
+        {
+            'name' : 'mountains, trees, chainsaws',
+            'description' : 'A rock, paper, scissors of epic proportions',
+            'environment' : 'HTML5, CSS3, JavaScript'
+        },
+        {
+            'name' : 'weather app',
+            'description' : 'A simple weather application with search functionality connected to Open Weather Map via REST API',
+            'environment' : 'JavaScript, HTML5, Bootstrap 4'
+        },
+    ]
+    
+    return render_template('projects.html', projects=projects)

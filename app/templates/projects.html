@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for project in projects %}
+        <div class="card col-md-4">
+            <div class="card-header bg-info">
+                <h4 class="card-title">Project Name <span class="pull-right">{{ project.name.title() }}</span></h4>
+            </div>
+            <div class="card-body">Description <span class="pull-right">{{ project.description }}</span></div>
+            <div class="card-footer bg-secondary">Environment <span class="pull-right">{{ project.environment }}</span></div>
+        </div>
+    {% endfor %}
+{% endblock %}
