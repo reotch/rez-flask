@@ -11,3 +11,7 @@ Goals:
     <li>Develop endpoints for front-end framework</li>
     <li>One or more front end frameworks&mdash;Angular, React, and/or VueJS</li>
 </ol>
+
+The project heavily relies on lessons from Miguel Grinberg's excellent [Python Flask tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
+
+[.gitignore source file](https://github.com/github/gitignore/blob/master/Python.gitignore)
