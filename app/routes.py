@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, url_for
 from app import app
 
 
@@ -156,7 +156,7 @@ def summary():
                 'Android'
             ]
         }
-    return render_template('summary.html', summary=summary, skills=skills)
+    return render_template('summary.html', title="Richard Sandrok—Summary", summary=summary, skills=skills)
 
 @app.route('/projects')
 def projects():
@@ -183,4 +183,35 @@ def projects():
         },
     ]
     
-    return render_template('projects.html', projects=projects)
+    return render_template('projects.html', title="Richard Sandrok—Projects", projects=projects)
+
+@app.route('/education')
+def education():
+    school = 'elmhurst college'
+    degree = 'bachelor of science'
+    major = 'music business'
+
+    return render_template('education.html', title="Richard Sandrok—Education", school=school, degree=degree, major=major)
+
+@app.route('/interests')
+def interests():
+    interests = [
+        {
+            'type' : 'music & performance',
+            'desc' : 'member of symphonic, concert, and rock/electronic bands; toured nationally, performed internationally'
+        },
+        {
+            'type' : 'photography & videography',
+            'desc' : ''
+        },
+        {
+            'type' : 'computers, science & technology',
+            'desc' : 'restoring old, antiquated computers to working, functioning machines; building PCs; rooting mobile devices; hydroponic & aquaponic systems'
+        },
+        {
+            'type' : 'conservation & ecology',
+            'desc' : 'Shedd Aquarium volunteer since 2009; includes WordPress site development for educators'
+        }
+    ]
+    
+    return render_template('interests.html', title="Richard Sandrok—Interests & Community", interests=interests)

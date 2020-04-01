@@ -19,11 +19,12 @@
                     <a href="#" class="navbar-brand">Navbar</a>
                     <!-- TODO: Insert URL_FOR relative links -->
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Qualifications Summary</a></li>
-                        <li><a href="#">Development Projects</a></li>
-                        <li><a href="#">Work Experience</a></li>
-                        <li><a href="#">Education</a></li>
-                        <li><a href="#">Interests &amp; Community</a></li>
+                        <li><a href="{{ url_for('index') }}">Home &amp; Contact</a></li>
+                        <li><a href="{{ url_for('summary') }}">Qualifications Summary</a></li>
+                        <li><a href="{{ url_for('projects') }}">Development Projects</a></li>
+                        <li><a href="{{ url_for('experience') }}">Work Experience</a></li>
+                        <li><a href="{{ url_for('education') }}">Education</a></li>
+                        <li><a href="{{ url_for('interests') }}">Interests &amp; Community</a></li>
                     </ul>
                 </nav>
             </div>
