@@ -2,12 +2,18 @@
 
 {% block content %}
     {% for project in projects %}
-        <div class="card col-md-4">
-            <div class="card-header bg-info">
-                <h4 class="card-title">Project Name <span class="pull-right">{{ project.name.title() }}</span></h4>
+        <!-- <div class="container-fluid"> -->
+            <div class="card-columns col-md-4" style="max-width: 400px;">
+                <div class="card">
+                    <img src="https://placehold.it/400x400" alt="" class="card-image-top">
+                    <div class="card-body bg-primary">
+                        <h4 class="card-title">{{ project.name.title() }}</h4>
+                    </div>
+                    <div class="card-text">{{ project.description }}</div>
+                    <div class="bg-info">Environment <span class="">{{ project.environment }}</span></div>
+                    <a href="#" class="btn btn-primary stretched-link">See it!</a>
+                </div>
             </div>
-            <div class="card-body">Description <span class="pull-right">{{ project.description }}</span></div>
-            <div class="card-footer bg-secondary">Environment <span class="pull-right">{{ project.environment }}</span></div>
-        </div>
+        <!-- </div> -->
     {% endfor %}
 {% endblock %}
