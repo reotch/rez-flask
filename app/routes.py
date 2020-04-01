@@ -93,3 +93,67 @@ def experience():
     ]
 
     return render_template('experience.html', title='Richard Sandrok—Work Experience', positions=positions)
+
+@app.route('/summary')
+def summary():
+    summary = { 'description' : 'Motivated full-stack developer, experienced digital content creator, and proven collaborator with team management and software development experience. I can coordinate and communicate with technical and non-technical people at all levels, from Customer Service to C-Suite. I have experience working with organizations of various sizes, from being the third person at a start-up to mid-size global companies. I have worked in many locations throughout the world for varied clientele.'}
+    skills = {
+            'languages' : [
+                'Python',
+                'JavaScript',
+                'HTML5',
+                'XML',
+                'CSS3'
+            ],
+            'tech' : [
+                'RestAPI',
+                'Web Form APIs',
+                'Angular',
+                'Flask',
+                'Bootstrap UI',
+                'NumPy',
+                'Pandas',
+                'jQuery'
+            ],
+            'dbs' : [
+                'SQL',
+                'MySQL',
+                'PostgreSQL',
+                'SQLite',
+                'AWS RDS'
+            ],
+            'tools' : [
+                'Git',
+                'Object-Oriented Programming',
+                'Anaconda',
+                'Jupyter Notebook',
+                'Data Model',
+                'SQL Server Management Studios',
+                'Google Developer Tools',
+                'Agile Development',
+                'JSON',
+                'Tableau',
+                'Microsoft Office (Word, Excel and PowerPoint)',
+                'WordPress',
+                'Adobe Suite (Photoshop, Lightroom, Premiere)',
+                'SharePoint',
+                'Camtasia',
+                'Reaper',
+                'Audacity',
+                'DaVinci Resolve',
+                'SAP',
+                'YouTube',
+                'Vimeo',
+                'Libsyn'
+            ],
+            'source' : [
+                'GitHub',
+                'Git',
+                'Windows'
+                'OS X',
+                'Linux',
+                'iOS',
+                'Android'
+            ]
+        }
+    return render_template('summary.html', summary=summary, skills=skills)
