@@ -1,5 +1,6 @@
 from flask import render_template, url_for
 from app import app
+from app.forms import LoginForm
 
 
 @app.route('/')
@@ -215,3 +216,8 @@ def interests():
     ]
     
     return render_template('interests.html', title="Richard Sandrok—Interests & Community", interests=interests)
+
+@app.route('/login')
+def login():
+    form = LoginForm()
+    return render_template('login.html', title='Sign In', form=form)
