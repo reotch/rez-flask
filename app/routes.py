@@ -1,4 +1,4 @@
-from flask import render_template, url_for
+from flask import render_template, url_for, flash, redirect
 from app import app
 from app.forms import LoginForm
 
@@ -6,8 +6,20 @@ from app.forms import LoginForm
 @app.route('/')
 @app.route('/index')
 def index():
-    user = {'username' : 'richard'}
-    return render_template('index.html', title="Richard Sandrok—Software Developer", user=user)
+    user = {
+        'username' : 'richard'
+        }
+    summary = { 
+        'description' : 'Motivated full-stack developer, experienced digital content creator, and proven collaborator with team management and software development experience. I can coordinate and communicate with technical and non-technical people at all levels, from Customer Service to C-Suite. I have experience working with organizations of various sizes, from being the third person at a start-up to mid-size global companies. I have worked in many locations throughout the world for varied clientele.'
+        }
+    # TODO: create variable and dictionary for contact info
+    contact = {
+        'phone' : '+1-847-868-2028',
+        'email' : 'richard@sandrok.com',
+        'skype' : 'richard.sandrok',
+        'signal' : '+1-773-430-0306',
+        }
+    return render_template('index.html', title="Richard Sandrok—Software Developer", user=user, summary=summary, contact=contact)
 
 @app.route('/experience')
 def experience():
@@ -97,6 +109,7 @@ def experience():
 
 @app.route('/summary')
 def summary():
+    # summary moved to /index for "summary and contact"
     summary = { 'description' : 'Motivated full-stack developer, experienced digital content creator, and proven collaborator with team management and software development experience. I can coordinate and communicate with technical and non-technical people at all levels, from Customer Service to C-Suite. I have experience working with organizations of various sizes, from being the third person at a start-up to mid-size global companies. I have worked in many locations throughout the world for varied clientele.'}
     skills = {
             'languages' : [
@@ -157,6 +170,7 @@ def summary():
                 'Android'
             ]
         }
+    # NOTE: summary not used here; moved to /index route
     return render_template('summary.html', title="Richard Sandrok—Summary", summary=summary, skills=skills)
 
 @app.route('/projects')
@@ -217,7 +231,10 @@ def interests():
     
     return render_template('interests.html', title="Richard Sandrok—Interests & Community", interests=interests)
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
+    if form.validate_on_submit():
+        flash(f'Login requested for {form.username.data}, remember me={form.remember_me.data}')
+        return redirect('/index')
     return render_template('login.html', title='Sign In', form=form)
